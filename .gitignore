@@ -1,0 +1,26 @@
+# Ignore Python-related files
+*.pyc
+__pycache__/
+venv/
+*.egg-info/
+dist/
+build/
+
+# Ignore environment-related files
+.env
+.env.*
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore log files
+*.log
+
+# Ignore dependencies installed via pip
+# Adjust this if you use a different package manager (e.g., poetry or pipenv)
+requirements.txt
