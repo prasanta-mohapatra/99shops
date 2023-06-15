@@ -23,6 +23,11 @@ class Settings(BaseSettings):
     NOMINATION_URL: str = "https://nominatim.openstreetmap.org"
     CONTACT: str = "mohapatraprasant98@gmail.com"
     BASE_URL: str = "127.0.0.1:8000"
+    ALLOWED_ORIGINS: str
+
+    @property
+    def ALLOWED_ORIGINS_LIST(self) -> list:
+        return self.ALLOWED_ORIGINS.split(",")
 
     @property
     def SQLALCHEMY_DATABASE_URI(self) -> str:
