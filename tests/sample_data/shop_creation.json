@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Shop A",
+    "latitude": 40.7128,
+    "longitude": -74.006,
+    "address": "1st Avenue",
+    "city": "New York",
+    "state": "New York",
+    "country": "United States",
+    "postal_code": "10001"
+  },
+  {
+    "name": "Shop B",
+    "latitude": 34.0522,
+    "longitude": -118.2437,
+    "address": "2nd Street",
+    "city": "Los Angeles",
+    "state": "California",
+    "country": "United States",
+    "postal_code": "90001"
+  },
+  {
+    "name": "Shop C",
+    "latitude": 51.5074,
+    "longitude": -0.1278,
+    "address": "3rd Road",
+    "city": "London",
+    "state": "",
+    "country": "United Kingdom",
+    "postal_code": "SW1A 1AA"
+  },
+  {
+    "name": "Shop D",
+    "latitude": 48.8566,
+    "longitude": 2.3522,
+    "address": "4th Boulevard",
+    "city": "Paris",
+    "state": "",
+    "country": "France",
+    "postal_code": "75000"
+  },
+  {
+    "name": "Shop E",
+    "latitude": 55.7558,
+    "longitude": 37.6176,
+    "address": "5th Street",
+    "city": "Moscow",
+    "state": "",
+    "country": "Russia",
+    "postal_code": "101000"
+  },
+  {
+    "name": "Shop F",
+    "latitude": -33.8688,
+    "longitude": 151.2093,
+    "address": "6th Avenue",
+    "city": "Sydney",
+    "state": "New South Wales",
+    "country": "Australia",
+    "postal_code": "2000"
+  },
+  {
+    "name": "Shop G",
+    "latitude": 43.6532,
+    "longitude": -79.3832,
+    "address": "7th Place",
+    "city": "Toronto",
+    "state": "Ontario",
+    "country": "Canada",
+    "postal_code": "M5V 2J4"
+  },
+  {
+    "name": "Shop H",
+    "latitude": -23.5505,
+    "longitude": -46.6333,
+    "address": "8th Road",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "country": "Brazil",
+    "postal_code": "01000-000"
+  },
+  {
+    "name": "Shop I",
+    "latitude": 40.4168,
+    "longitude": -3.7038,
+    "address": "9th Lane",
+    "city": "Madrid",
+    "state": "",
+    "country": "Spain",
+    "postal_code": "28001"
+  },
+  {
+    "name": "Shop J",
+    "latitude": -37.8136,
+    "longitude": 144.9631,
+    "address": "10th Street",
+    "city": "Melbourne",
+    "state": "Victoria",
+    "country": "Australia",
+    "postal_code": "3000"
+  },
+  {
+    "name": "Shop K",
+    "latitude": 35.6895,
+    "longitude": 139.6917,
+    "address": "11th Avenue",
+    "city": "Tokyo",
+    "state": "",
+    "country": "Japan",
+    "postal_code": "100-0001"
+  },
+  {
+    "name": "Shop L",
+    "latitude": 52.52,
+    "longitude": 13.405,
+    "address": "12th Road",
+    "city": "Berlin",
+    "state": "",
+    "country": "Germany",
+    "postal_code": "10115"
+  },
+  {
+    "name": "Shop M",
+    "latitude": -22.9068,
+    "longitude": -43.1729,
+    "address": "13th Street",
+    "city": "Rio de Janeiro",
+    "state": "Rio de Janeiro",
+    "country": "Brazil",
+    "postal_code": "20000-000"
+  },
+  {
+    "name": "Shop N",
+    "latitude": 51.5074,
+    "longitude": -0.1278,
+    "address": "14th Place",
+    "city": "London",
+    "state": "",
+    "country": "United Kingdom",
+    "postal_code": "SW1A 2AA"
+  },
+  {
+    "name": "Shop O",
+    "latitude": 48.8566,
+    "longitude": 2.3522,
+    "address": "15th Boulevard",
+    "city": "Paris",
+    "state": "",
+    "country": "France",
+    "postal_code": "75100"
+  },
+  {
+    "name": "Shop P",
+    "latitude": 55.7558,
+    "longitude": 37.6176,
+    "address": "16th Road",
+    "city": "Moscow",
+    "state": "",
+    "country": "Russia",
+    "postal_code": "101001"
+  },
+  {
+    "name": "Shop Q",
+    "latitude": -33.8688,
+    "longitude": 151.2093,
+    "address": "17th Avenue",
+    "city": "Sydney",
+    "state": "New South Wales",
+    "country": "Australia",
+    "postal_code": "2001"
+  },
+  {
+    "name": "Shop R",
+    "latitude": 43.6532,
+    "longitude": -79.3832,
+    "address": "18th Place",
+    "city": "Toronto",
+    "state": "Ontario",
+    "country": "Canada",
+    "postal_code": "M5V 2J5"
+  },
+  {
+    "name": "Shop S",
+    "latitude": -23.5505,
+    "longitude": -46.6333,
+    "address": "19th Lane",
+    "city": "Sao Paulo",
+    "state": "Sao Paulo",
+    "country": "Brazil",
+    "postal_code": "02000-000"
+  },
+  {
+    "name": "Shop T",
+    "latitude": 40.4168,
+    "longitude": -3.7038,
+    "address": "20th Street",
+    "city": "Madrid",
+    "state": "",
+    "country": "Spain",
+    "postal_code": "28002"
+  }
+]

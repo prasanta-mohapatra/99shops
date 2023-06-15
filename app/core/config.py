@@ -13,12 +13,15 @@ class Settings(BaseSettings):
         case_sensitive = True
 
     APP_NAME: str = "99Shops"
+    APP_VERSION: float = 1.0
     DEBUG: bool = False
     DATABASE_NAME: str
     DATABASE_NAME_TEST: str = "TEST_99Shops"
     DATABASE_ID: str
     DATABASE_PASSWORD: str
     TESTING: bool = False
+    NOMINATION_URL: str = "https://nominatim.openstreetmap.org"
+    CONTACT: str = "mohapatraprasant98@gmail.com"
 
     @property
     def SQLALCHEMY_DATABASE_URI(self) -> str:
@@ -32,4 +35,4 @@ class Settings(BaseSettings):
         )
 
 
-settings = Settings()
+settings = Settings()  # type: ignore

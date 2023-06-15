@@ -1,4 +1,4 @@
-from typing import List
+from typing import List, Optional
 
 from fastapi import APIRouter, Depends, HTTPException, status
 
@@ -13,10 +13,12 @@ app = APIRouter()
 
 @app.get("/", response_model=List[Shop], status_code=status.HTTP_200_OK)
 async def get_all_shops(
+    location: Optional[str] = None,
+    perimeter: float = 20.0,
     shop_service: ShopService = Depends(get_shop_service),
 ) -> List[Shop]:
     try:
-        return await shop_service.list_all_shops()
+        return await shop_service.list_all_shops(location, perimeter)
     except HTTPException:
         raise
 
