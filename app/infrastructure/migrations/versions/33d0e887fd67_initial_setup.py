@@ -1,8 +1,8 @@
-"""Create shops table
+"""Initial Setup
 
-Revision ID: 4696160692c1
-Revises: 0d5e3b33df6d
-Create Date: 2023-06-15 01:47:27.575905
+Revision ID: 33d0e887fd67
+Revises: 
+Create Date: 2023-06-15 14:30:58.449344
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '4696160692c1'
-down_revision = '0d5e3b33df6d'
+revision = '33d0e887fd67'
+down_revision = None
 branch_labels = None
 depends_on = None
 
