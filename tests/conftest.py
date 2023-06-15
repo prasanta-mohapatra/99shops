@@ -1,9 +1,11 @@
 import logging
 from typing import Generator
+
 import pytest
+from fastapi.testclient import TestClient
+
 from app.core.config import settings
 from main import app
-from fastapi.testclient import TestClient
 
 
 @pytest.fixture(scope="module")
@@ -19,8 +21,9 @@ def anyio_backend():
 
 @pytest.fixture(scope="session", autouse=True)
 def prepare_database() -> Generator:
-    from sqlbag.createdrop import create_database, drop_database
     from sqlalchemy import create_engine
+    from sqlbag.createdrop import create_database, drop_database
+
     from app.core.connection import create_db_and_tables
 
     settings.TESTING = True

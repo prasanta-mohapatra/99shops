@@ -6,6 +6,7 @@ from sqlmodel import Session, delete, select, update
 from app.core.connection import engine
 from app.domain.shop.shop_schema import ShopUpdateSchema
 from app.infrastructure.models.shops import Shop
+from app.utils.exception.internal_exception import ConflictException
 
 
 class ShopsQueries:
@@ -44,10 +45,15 @@ class ShopsQueries:
     async def create_shop(self, shop: Shop) -> Shop:
         with Session(self.__engine) as session:
             shop_meta = Shop.from_orm(shop)
-            session.add(shop_meta)
-            session.commit()
-            session.refresh(shop_meta)
-            return shop_meta
+            try:
+                session.add(shop_meta)
+                session.commit()
+                session.refresh(shop_meta)
+                return shop_meta
+            except Exception as e:
+                session.rollback()
+                error_message = str(e.args[0]) if e.args else "Unknown error occurred"
+                raise ConflictException(error_message)
 
     async def update_shop(self, shop_id: int, shop: ShopUpdateSchema) -> Shop:
         with Session(self.__engine) as session:

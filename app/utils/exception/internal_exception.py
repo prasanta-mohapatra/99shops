@@ -15,3 +15,10 @@ class NotFoundException(InternalException):
         self.resource_id = resource_id
         message = f"{resource_name} with ID {resource_id} not found"
         super().__init__(message=message, status_code=404)
+
+
+class ConflictException(InternalException):
+    """Exception raised when a resource is not found."""
+
+    def __init__(self, error_message: str):
+        super().__init__(message=error_message, status_code=409)

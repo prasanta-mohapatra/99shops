@@ -2,26 +2,40 @@ import pytest
 from starlette import status
 from starlette.testclient import TestClient
 
-shop_base_url = f"/shop"
+shop_base_url = "/shop"
+
+
+@pytest.fixture
+async def create_shop() -> dict:
+    return {
+        "id": 1,
+        "name": "Shop A",
+        "latitude": 40.7128,
+        "longitude": -74.006,
+        "address": "1st Avenue",
+        "city": "New York",
+        "state": "New York",
+        "country": "United States",
+        "postal_code": "10001",
+    }
 
 
 @pytest.mark.anyio
-async def test_create_shop(client: TestClient):
+async def test_create_shop(client: TestClient, create_shop):
     r = client.post(
         f"{shop_base_url}/",
-        json={
-            "id": 1,
-            "name": "Shop A",
-            "latitude": 40.7128,
-            "longitude": -74.006,
-            "address": "1st Avenue",
-            "city": "New York",
-            "state": "New York",
-            "country": "United States",
-            "postal_code": "10001",
-        },
+        json=create_shop,
     )
     assert r.status_code == status.HTTP_201_CREATED
+
+
+@pytest.mark.anyio
+async def test_create_shop_conflict(client: TestClient, create_shop):
+    r = client.post(
+        f"{shop_base_url}/",
+        json=create_shop,
+    )
+    assert r.status_code == status.HTTP_409_CONFLICT
 
 
 @pytest.mark.anyio

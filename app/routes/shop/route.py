@@ -6,7 +6,8 @@ from app.domain.shop.shop_schema import ShopUpdateSchema
 from app.domain.shop.shop_service import ShopService
 from app.infrastructure.models.shops import Shop
 from app.routes.service_factory import get_shop_service
-from app.utils.exception.internal_exception import NotFoundException
+from app.utils.exception.internal_exception import (ConflictException,
+                                                    NotFoundException)
 
 app = APIRouter()
 
@@ -28,7 +29,10 @@ async def create_shop(
     shop_details: Shop,
     shop_service: ShopService = Depends(get_shop_service),
 ):
-    return await shop_service.create_new_shop(shop_details)
+    try:
+        return await shop_service.create_new_shop(shop_details)
+    except ConflictException as ex:
+        raise HTTPException(ex.status_code, ex.message)
 
 
 @app.get("/{shop_id}", response_model=Shop, status_code=status.HTTP_200_OK)
