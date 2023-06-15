@@ -1,8 +1,9 @@
 import logging
+
 from sqlmodel import create_engine
+
 from app.core.config import settings
 from app.infrastructure.models import metadata
-
 
 try:
     engine = create_engine(settings.SQLALCHEMY_DATABASE_URI, echo=True)

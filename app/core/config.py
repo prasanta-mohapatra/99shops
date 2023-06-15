@@ -1,7 +1,7 @@
-from pydantic import BaseSettings
-from dotenv import load_dotenv
 import os
 
+from dotenv import load_dotenv
+from pydantic import BaseSettings
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 load_dotenv(os.path.join(BASE_DIR, ".env"))
@@ -26,7 +26,10 @@ class Settings(BaseSettings):
         if self.TESTING:
             databasename = self.DATABASE_NAME_TEST
 
-        return f"postgresql://{settings.DATABASE_ID}:{settings.DATABASE_PASSWORD}@localhost/{databasename}"
+        return (
+            f"postgresql://{settings.DATABASE_ID}:{settings.DATABASE_PASSWORD}"
+            f"@localhost/{databasename}"
+        )
 
 
 settings = Settings()

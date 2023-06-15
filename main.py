@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from app.core.connection import engine, create_db_and_tables
+
+from app.core.connection import create_db_and_tables, engine
 from app.routes.router import router
 
 app = FastAPI()

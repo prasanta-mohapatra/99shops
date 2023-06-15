@@ -26,7 +26,8 @@ for file_path in model_files:
             if isinstance(cls, type) and issubclass(cls, SQLModel)
         ]
 
-        # Do something with the model class, such as registering it or using it for migrations
+        """ Do something with the model class,
+        such as registering it or using it for migrations """
 
 # Get the target metadata
 metadata = SQLModel.metadata
