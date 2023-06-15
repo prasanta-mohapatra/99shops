@@ -11,4 +11,4 @@ app.include_router(router)
 
 @app.on_event("startup")
 async def on_startup():
-    await create_db_and_tables(engine)
+    create_db_and_tables(engine)

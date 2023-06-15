@@ -19,7 +19,7 @@ async def get_all_shops(
 ) -> List[Shop]:
     try:
         return await shop_service.list_all_shops(location, perimeter)
-    except HTTPException:
+    except Exception:
         raise
 
 
@@ -28,10 +28,7 @@ async def create_shop(
     shop_details: Shop,
     shop_service: ShopService = Depends(get_shop_service),
 ):
-    try:
-        return await shop_service.create_new_shop(shop_details)
-    except HTTPException:
-        raise
+    return await shop_service.create_new_shop(shop_details)
 
 
 @app.get("/{shop_id}", response_model=Shop, status_code=status.HTTP_200_OK)

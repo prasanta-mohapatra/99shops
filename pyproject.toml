@@ -19,6 +19,9 @@ alembic = "^1.11.1"
 psycopg2 = "^2.9.6"
 sqlmodel = "^0.0.8"
 requests = "^2.31.0"
+sqlbag = "^0.1.1617247075"
+httpx = "^0.24.1"
+pytest-cov = "^4.1.0"
 
 
 [tool.poetry.group.dev.dependencies]
@@ -30,3 +33,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.taskipy.tasks]
 app = "uvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+test = "pytest -s --verbose --pdb --cov=app --cov-report=term-missing --cov-report=xml:.artifacts/coverage.xml --junit-xml=.artifacts/tests.xml"

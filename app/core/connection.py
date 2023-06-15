@@ -12,5 +12,5 @@ except Exception:
     raise
 
 
-async def create_db_and_tables(db_engine):
+def create_db_and_tables(db_engine):
     metadata.create_all(db_engine)

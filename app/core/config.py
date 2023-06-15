@@ -16,12 +16,13 @@ class Settings(BaseSettings):
     APP_VERSION: float = 1.0
     DEBUG: bool = False
     DATABASE_NAME: str
-    DATABASE_NAME_TEST: str = "TEST_99Shops"
+    DATABASE_NAME_TEST: str = "test_99shops"
     DATABASE_ID: str
     DATABASE_PASSWORD: str
     TESTING: bool = False
     NOMINATION_URL: str = "https://nominatim.openstreetmap.org"
     CONTACT: str = "mohapatraprasant98@gmail.com"
+    BASE_URL: str = "127.0.0.1:8000"
 
     @property
     def SQLALCHEMY_DATABASE_URI(self) -> str:
