@@ -1,4 +1,5 @@
 import os
+from typing import Optional
 
 from dotenv import load_dotenv
 from pydantic import BaseSettings
@@ -26,6 +27,7 @@ class Settings(BaseSettings):
     CONTACT: str = "mohapatraprasant98@gmail.com"
     BASE_URL: str = "127.0.0.1:8000"
     ALLOWED_ORIGINS: str
+    DATABASE_URL: Optional[str]
 
     @property
     def ALLOWED_ORIGINS_LIST(self) -> list:
@@ -33,6 +35,8 @@ class Settings(BaseSettings):
 
     @property
     def SQLALCHEMY_DATABASE_URI(self) -> str:
+        if not self.TESTING and self.DATABASE_URL:
+            return self.DATABASE_URL
         databasename = self.DATABASE_NAME
         if self.TESTING:
             databasename = self.DATABASE_NAME_TEST
