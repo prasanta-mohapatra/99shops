@@ -15,10 +15,12 @@ class Settings(BaseSettings):
     APP_NAME: str = "99Shops"
     APP_VERSION: float = 1.0
     DEBUG: bool = False
+    DATABASE_HOST: str = "127.0.0.1"
     DATABASE_NAME: str
     DATABASE_NAME_TEST: str = "test_99shops"
     DATABASE_ID: str
     DATABASE_PASSWORD: str
+    DATABASE_PORT: int = 5432
     TESTING: bool = False
     NOMINATION_URL: str = "https://nominatim.openstreetmap.org"
     CONTACT: str = "mohapatraprasant98@gmail.com"
@@ -35,10 +37,7 @@ class Settings(BaseSettings):
         if self.TESTING:
             databasename = self.DATABASE_NAME_TEST
 
-        return (
-            f"postgresql://{settings.DATABASE_ID}:{settings.DATABASE_PASSWORD}"
-            f"@localhost/{databasename}"
-        )
+        return f"postgresql://{self.DATABASE_ID}:{self.DATABASE_PASSWORD}@{self.DATABASE_HOST}:{self.DATABASE_PORT}/{databasename}"
 
 
 settings = Settings()  # type: ignore

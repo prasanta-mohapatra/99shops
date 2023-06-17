@@ -40,13 +40,13 @@ async def test_create_shop_conflict(client: TestClient, create_shop):
 
 @pytest.mark.anyio
 async def test_get_all_shops_filter(client: TestClient):
-    r = client.get(f"{shop_base_url}?location='1st Avenue'&perimeter=20")
+    r = client.get(f"{shop_base_url}?latitude=40.7128&longitude=-74.006&area=200")
     assert r.status_code == status.HTTP_200_OK
 
 
 @pytest.mark.anyio
 async def test_get_all_shops(client: TestClient):
-    r = client.get(f"{shop_base_url}/")
+    r = client.get(f"{shop_base_url}?latitude=40.7128&longitude=-74.006&area=20")
     assert r.status_code == status.HTTP_200_OK
 
 

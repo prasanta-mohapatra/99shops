@@ -17,21 +17,23 @@ class ShopsQueries:
         self,
         latitude: Optional[float] = None,
         longitude: Optional[float] = None,
-        perimeter: Optional[float] = None,
+        area: Optional[float] = None,
     ) -> List[Shop]:
         with Session(self.__engine) as session:
             query = select(Shop)
-            if latitude and longitude and perimeter:
-                """Calculate the distance between the given latitude/longitude and shop coordinates"""
+            if latitude and longitude and area:
+                area_in_miles = area / 1.60934
+                # Calculate the distance between the given latitude/longitude and shop coordinates
                 distance = func.sqrt(
                     func.pow(69.1 * (Shop.latitude - latitude), 2)
                     + func.pow(
                         69.1 * (Shop.longitude - longitude) * func.cos(latitude / 57.3),
                         2,
                     )
-                )
-                # Query the shops within the specified perimeter
-                query = query.where(distance <= perimeter).order_by(distance)
+                ).label("distance")
+                query = select(Shop, distance)
+                # Query the shops within the specified area
+                query = query.where(distance <= area_in_miles).order_by(distance)
             results = session.exec(query).all()
 
             return results

@@ -12,3 +12,8 @@ class ShopUpdateSchema(BaseModel):
     state: Optional[str]
     country: Optional[str]
     postal_code: Optional[str]
+
+
+class ShopResponseModel(ShopUpdateSchema):
+    distance: Optional[float]
+    id: Optional[int]

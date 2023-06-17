@@ -1,9 +1,9 @@
-from typing import List, Optional, Tuple
+from typing import List, Tuple, Union
 
 import requests
 
 from app.core.config import settings
-from app.domain.shop.shop_schema import ShopUpdateSchema
+from app.domain.shop.shop_schema import ShopResponseModel, ShopUpdateSchema
 from app.infrastructure.models.shops import Shop
 from app.infrastructure.queries.shops import ShopsQueries
 from app.utils.exception.internal_exception import NotFoundException
@@ -48,14 +48,25 @@ class ShopService:
 
     async def list_all_shops(
         self,
-        location: Optional[str],
-        perimeter: float,
-    ) -> List[Shop]:
-        if location:
-            latitude, longitude = await self.get_altitude_longitude(location)
-            return await self.__shop_queries.get_all_shops(
-                latitude, longitude, perimeter
+        latitude: float,
+        longitude: float,
+        area: float,
+    ) -> Union[List[ShopResponseModel], List[Shop]]:
+        if latitude and latitude:
+            all_shops = await self.__shop_queries.get_all_shops(
+                latitude, longitude, area
             )
+            shop_response_models = []
+            for shop in all_shops:
+                distance_in_miles = float(shop.distance)  # type: ignore
+                distance_in_kms = distance_in_miles * 1.60934
+                shop_response_model = ShopResponseModel(
+                    **shop.Shop.dict(),  # type: ignore
+                    distance=distance_in_kms,
+                )
+                shop_response_models.append(shop_response_model)
+            return shop_response_models
+
         return await self.__shop_queries.get_all_shops()
 
     async def get_shop_details(self, shop_id: int) -> Shop:
