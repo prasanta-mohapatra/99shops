@@ -26,6 +26,8 @@ class Settings(BaseSettings):
     NOMINATION_URL: str = "https://nominatim.openstreetmap.org"
     CONTACT: str = "mohapatraprasant98@gmail.com"
     BASE_URL: str = "127.0.0.1:8000"
+    APP_HOST: str = "0.0.0.0"
+    APP_PORT: int = 8000
     ALLOWED_ORIGINS: str
     DATABASE_URL: Optional[str]
 
